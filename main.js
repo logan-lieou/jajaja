@@ -1,15 +1,17 @@
 express = require('express');
-cors = require('cors');
+
+let text = "something";
 
 app = express()
-app.use(cors());
 
-app.post("/", (res, req) => {
+app.post("/", (req, res) => {
+  // text = req.body
   console.log(req);
+  console.log(req.body);
 });
 
-app.get("/", (res, req) => {
-  res.send("The GNU General Public License is a free, copyleft license for software and other kinds of works.");
+app.get("/", (req, res) => {
+  res.send(text);
   console.log("received req");
 });
 
